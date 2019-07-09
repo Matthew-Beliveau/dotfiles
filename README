@@ -1,6 +1,6 @@
 Installation:
 
-    git clone git://github.com/Matthew-Beliveau/dotfiles.git ~/.vim
+    git clone git://github.com/Matthew-Beliveau/dotfiles.git ~/dotfiles
 
 Create symlinks:
 
