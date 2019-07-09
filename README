@@ -1,0 +1,14 @@
+Installation:
+
+    git clone git://github.com/Matthew-Beliveau/dotfiles.git ~/.vim
+
+Create symlinks:
+
+    ln -s ~/.vim/.bashrc ~/.bashrc
+    ln -s ~/.vim/.gitconfig ~/.gitconfig
+
+Switch to the `~/dotfiles` directory, and fetch submodules:
+
+    cd ~/dotfiles
+    git submodule init
+    git submodule update

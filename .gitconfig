@@ -1,0 +1,46 @@
+[credential]
+	helper = cache
+[user]
+	name = Matthew-Beliveau
+	email = beliveau0213@gmail.com
+[color]
+  	branch = auto
+  	diff = auto
+  	status = auto
+
+[color "branch"]
+  	current = yellow reverse
+  	local = yellow
+	remote = green
+
+[color "diff"]
+  	meta = yellow bold
+  	frag = magenta bold
+ 	old = red bold
+	new = green bold
+
+[color "status"]
+  	added = yellow
+  	changed = green
+	untracked = cyan
+
+[alias]
+        st = status
+        sts = status -s
+        ci = commit
+        co = checkout
+        lg = log -p
+        lu = log --branches --not --remotes
+        l = log
+        rs = reset --hard
+        d = diff
+        dp = diff --relative --src-prefix=gcc/ --dst-prefix=gcc/
+        br = branch
+        p = pull
+        s = show
+        rlc = reset --soft HEAD~1
+        a = add -N -v
+        aa = add -N -v -A .
+        sr = "!f() { git log -p --grep=@"$1"; }; f"
+        cl = clean
+        bl = blame
