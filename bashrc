@@ -5,6 +5,13 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -19,34 +26,34 @@ fi
 #+ of cases.
 #--------------------------------------------------------------
 
-function get_xserver ()
-{
-    case $TERM in
-        xterm )
-            XSERVER=$(who am i | awk '{print $NF}' | tr -d ')''(' )
-            # Ane-Pieter Wieringa suggests the following alternative:
-            #  I_AM=$(who am i)
-            #  SERVER=${I_AM#*(}
-            #  SERVER=${SERVER%*)}
-            XSERVER=${XSERVER%%:*}
-            ;;
-            aterm | rxvt)
-            # Find some code that works here. ...
-            ;;
-    esac
-}
-
-if [ -z ${DISPLAY:=""} ]; then
-    get_xserver
-    if [[ -z ${XSERVER}  || ${XSERVER} == $(hostname) ||
-       ${XSERVER} == "unix" ]]; then
-          DISPLAY=":0.0"          # Display on local host.
-    else
-       DISPLAY=${XSERVER}:0.0     # Display on remote host.
-    fi
-fi
-
-export DISPLAY
+# function get_xserver ()
+# {
+#     case $TERM in
+#         xterm )
+#             XSERVER=$(who am i | awk '{print $NF}' | tr -d ')''(' )
+#             # Ane-Pieter Wieringa suggests the following alternative:
+#             #  I_AM=$(who am i)
+#             #  SERVER=${I_AM#*(}
+#             #  SERVER=${SERVER%*)}
+#             XSERVER=${XSERVER%%:*}
+#             ;;
+#             aterm | rxvt)
+#             # Find some code that works here. ...
+#             ;;
+#     esac
+# }
+# 
+# if [ -z ${DISPLAY:=""} ]; then
+#     get_xserver
+#     if [[ -z ${XSERVER}  || ${XSERVER} == $(hostname) ||
+#        ${XSERVER} == "unix" ]]; then
+#           DISPLAY=":0.0"          # Display on local host.
+#     else
+#        DISPLAY=${XSERVER}:0.0     # Display on remote host.
+#     fi
+# fi
+# 
+# export DISPLAY
 
 #-------------------------------------------------------------
 # Some settings
@@ -565,9 +572,6 @@ export VISUAL=vim
 
 
 #export IGNOREEOF=3
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
-export PATH=$JAVA_HOME/bin:$PATH
-
 
 #-------------------
 # Personal Aliases
