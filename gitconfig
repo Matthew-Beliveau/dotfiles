@@ -1,8 +1,8 @@
 [credential]
 	helper = cache
 [user]
-	name = Matthew-Beliveau
-	email = beliveau0213@gmail.com
+	name = Matthew Beliveau
+	email = mbelivea@redhat.com
 [color]
   	branch = auto
   	diff = auto
